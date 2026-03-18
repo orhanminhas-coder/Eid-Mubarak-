@@ -8,13 +8,9 @@
 </head>
 <body>
 
-<audio id="bgMusic" autoplay loop>
-  <source src="YOUR_SONG_URL_HERE.mp3" type="audio/mpeg">
-</audio>
-
 <div class="container">
 
-  <div class="page" id="page1">
+  <div class="page active" id="page1">
     <h1>Ayesha… ek chhota sa secret hai 👀<br>Sirf tum dekh sakti ho…</h1>
     <button class="nextBtn">Next</button>
   </div>
@@ -34,6 +30,12 @@
   </div>
 
 </div>
+
+<!-- Song start button for mobile autoplay -->
+<button id="playMusicBtn">Play Eid Song 🎵</button>
+<audio id="bgMusic" loop>
+  <source src="YOUR_SONG_URL_HERE.mp3" type="audio/mpeg">
+</audio>
 
 <script src="script.js"></script>
 </body>
