@@ -1,5 +1,3 @@
-// script.js
-
 let pages = document.querySelectorAll('.page');
 let currentPage = 0;
 
@@ -13,10 +11,15 @@ buttons.forEach(button => {
     currentPage++;
     if(currentPage < pages.length){
       pages[currentPage].classList.add('active');
-      // Trigger confetti on last page
       if(currentPage === pages.length-1){
         createConfetti();
       }
+    }
+    // Play music after first click (mobile autoplay fix)
+    let music = document.getElementById('bgMusic');
+    if(music.paused){
+      music.volume = 0.3;
+      music.play().catch(()=>{});
     }
   });
 });
@@ -42,7 +45,7 @@ for(let i=0;i<5;i++){
   document.body.appendChild(butterfly);
 }
 
-// Confetti on last page
+// Confetti
 function createConfetti(){
   for(let i=0;i<40;i++){
     let confetti = document.createElement('div');
@@ -52,11 +55,3 @@ function createConfetti(){
     document.body.appendChild(confetti);
   }
 }
-
-// Play music button (for mobile autoplay)
-const music = document.getElementById('bgMusic');
-const playBtn = document.getElementById('playMusicBtn');
-playBtn.addEventListener('click', ()=>{
-  music.play();
-  playBtn.style.display = 'none';
-});
