@@ -13,6 +13,10 @@ buttons.forEach(button => {
     currentPage++;
     if(currentPage < pages.length){
       pages[currentPage].classList.add('active');
+      // Trigger confetti on last page
+      if(currentPage === pages.length-1){
+        createConfetti();
+      }
     }
   });
 });
@@ -36,6 +40,17 @@ for(let i=0;i<5;i++){
   butterfly.style.top=Math.random()*window.innerHeight+'px';
   butterfly.style.animationDuration=(10+Math.random()*10)+'s';
   document.body.appendChild(butterfly);
+}
+
+// Generate confetti for last page
+function createConfetti(){
+  for(let i=0;i<40;i++){
+    let confetti = document.createElement('div');
+    confetti.className='confetti';
+    confetti.style.left=Math.random()*window.innerWidth+'px';
+    confetti.style.background='hsl('+Math.random()*360+', 100%, 50%)';
+    document.body.appendChild(confetti);
+  }
 }
 
 // Play music automatically
