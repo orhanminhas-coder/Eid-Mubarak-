@@ -1,5 +1,22 @@
 // script.js
 
+let pages = document.querySelectorAll('.page');
+let currentPage = 0;
+
+// Show first page
+pages[currentPage].classList.add('active');
+
+let buttons = document.querySelectorAll('.nextBtn');
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    pages[currentPage].classList.remove('active');
+    currentPage++;
+    if(currentPage < pages.length){
+      pages[currentPage].classList.add('active');
+    }
+  });
+});
+
 // Generate floating hearts
 for(let i=0;i<25;i++){
   let heart = document.createElement('div');
@@ -21,16 +38,7 @@ for(let i=0;i<5;i++){
   document.body.appendChild(butterfly);
 }
 
-// Generate confetti
-for(let i=0;i<40;i++){
-  let confetti = document.createElement('div');
-  confetti.className='confetti';
-  confetti.style.left=Math.random()*window.innerWidth+'px';
-  confetti.style.background='hsl('+Math.random()*360+', 100%, 50%)';
-  document.body.appendChild(confetti);
-}
-
-// Play music automatically after load
+// Play music automatically
 window.addEventListener('load', ()=>{
   let music = document.getElementById('bgMusic');
   music.volume = 0.3;
